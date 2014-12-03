@@ -60,7 +60,9 @@ In case you ever start having permissions issues you can ssh into the virtual ma
 This will make sure that the wp-content directory and all of its contents (including subdirectories and their contents)
 will be readable and writable by all users. This script must be run as root which is why the snippet above includes sudo.
 
-##MySQL Access
+##MySQL
+
+###Access with GUI Client
 
 If you are using Sequel Pro or some other MySQL gui client and you want to access the DB you will need to configure it
 to connect over SSH and use the following settings:
@@ -76,3 +78,11 @@ to connect over SSH and use the following settings:
 * SSH Port: 2222
 
 You should use the default MySQL Port which means that you should be able to leave this field blank.
+
+###Loading DB during vagrant setup
+
+If you save a sql file named dump.sql into puppet/modules/mysql/files that sql file will be loaded into the DB during
+the initial provisioning. This will only happen the first time you run vagrant up. This might be useful if you already
+have a DB or if you need to use a different computer but you want an existing DB loaded.
+
+This file will be ignored by git so it cannot be committed.
