@@ -37,6 +37,8 @@ Use the following command to ssh into your virtual machine:
 
     vagrant ssh
 
+## Vagrant Share
+
 If you have a [Vagrant Cloud](https://vagrantcloud.com/) account and you want to generate a share url you must enter the
 following commands:
 
@@ -45,6 +47,9 @@ following commands:
 
 After the login command it will ask for your username and password. Then you can enter the second command to get your
 share url. You can use control-C to exit the share session.
+
+There are a few lines in the wp-config.php file that you may need to uncomment while people are accessing the site
+through a vagrant share url. This would be lines 18-20. This is necessary because Wordpress is stupid.
 
 ##Permissions
 

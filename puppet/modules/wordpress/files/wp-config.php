@@ -14,6 +14,11 @@
  * @package WordPress
  */
 
+/** You may need to uncomment the following lines when running a vagrant share */
+//$url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/';
+//define('WP_HOME', $url);
+//define('WP_SITEURL', $url);
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', 'wordpress');
