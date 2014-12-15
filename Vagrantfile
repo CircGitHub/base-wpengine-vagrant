@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "private_network", type: "dhcp"
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder ".", "/home/vagrant/src/wordpress", create: true
+  config.vm.synced_folder ".", "/home/vagrant/src/wordpress", create: true, :mount_options => ['dmode=777,fmode=666']
 
   config.vm.provision "puppet" do |puppet|
     puppet.manifests_path = "puppet/manifests"
