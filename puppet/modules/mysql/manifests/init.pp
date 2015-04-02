@@ -28,4 +28,13 @@ class mysql {
 			require => Exec['create-db'],
 			onlyif  => '/usr/bin/test -e /home/vagrant/src/wordpress/puppet/modules/mysql/files/dump.sql'
 	}
+
+	file
+	{
+		'/etc/mysql/my.cnf ':
+			ensure  => 'present',
+			source  => 'puppet:///modules/mysql/my.cnf',
+			require => Package['mysql-server'],
+			notify => Service['mysql']
+	}
 }
