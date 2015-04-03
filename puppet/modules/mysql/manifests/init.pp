@@ -31,7 +31,7 @@ class mysql {
 
 	file
 	{
-		'/etc/mysql/my.cnf ':
+		'/etc/mysql/my.cnf':
 			ensure  => 'present',
 			source  => 'puppet:///modules/mysql/my.cnf',
 			require => Package['mysql-server'],
