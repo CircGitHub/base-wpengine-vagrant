@@ -24,9 +24,9 @@ class mysql {
 	exec
 	{
 		'import db':
-			command => '/usr/bin/mysql -u root wordpress < /home/vagrant/src/wordpress/puppet/modules/mysql/files/dump.sql',
+			command => '/usr/bin/mysql -u root wordpress < /vagrant/puppet/modules/mysql/files/dump.sql',
 			require => Exec['create-db'],
-			onlyif  => '/usr/bin/test -e /home/vagrant/src/wordpress/puppet/modules/mysql/files/dump.sql'
+			onlyif  => '/usr/bin/test -e /vagrant/puppet/modules/mysql/files/dump.sql'
 	}
 
 	file

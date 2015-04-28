@@ -20,7 +20,15 @@ class php {
   {
     '/etc/php5/apache2/php.ini':
       ensure  => 'present',
-      source  => 'puppet:///modules/php/php.ini',
-      require => Package['php5-xdebug']
+      source  => 'puppet:///modules/php/php-apache.ini',
+      require => File['/etc/apache2/sites-enabled/wordpress.conf']
+  }
+
+  file
+  {
+    '/etc/php5/cli/php.ini':
+      ensure  => 'present',
+      source  => 'puppet:///modules/php/php-cli.ini',
+      require => File['/etc/apache2/sites-enabled/wordpress.conf']
   }
 }

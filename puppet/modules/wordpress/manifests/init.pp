@@ -2,7 +2,7 @@ class wordpress {
 
   file
   {
-    '/home/vagrant/src/wordpress/wp-config.php':
+    '/vagrant/wp-config.php':
       ensure => 'present',
       source => 'puppet:///modules/wordpress/wp-config.php',
       owner   => "vagrant",
@@ -10,26 +10,16 @@ class wordpress {
       mode    => 777
   }
 
-  file
-  {
-    '/home/vagrant/permissions.sh':
-      ensure => 'present',
-      source => 'puppet:///modules/wordpress/permissions.sh',
-      owner   => "vagrant",
-      group   => "vagrant",
-      mode    => 775
-  }
-
   exec
   {
     'general permissions':
-      command => '/bin/chmod -R 777 /home/vagrant/src/wordpress/wp-content',
-      onlyif  => '/usr/bin/test -e /home/vagrant/src/wordpress/index.php'
+      command => '/bin/chmod -R 777 /vagrant/wp-content',
+      onlyif  => '/usr/bin/test -e /vagrant/index.php'
   }
 
   file
   {
-    '/home/vagrant/src/wordpress/.htaccess':
+    '/vagrant/.htaccess':
       ensure => 'present',
       source => 'puppet:///modules/wordpress/.htaccess',
       owner   => "vagrant",
