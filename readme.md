@@ -51,15 +51,6 @@ share url. You can use control-C to exit the share session.
 There are a few lines in the wp-config.php file that you may need to uncomment while people are accessing the site
 through a vagrant share url. This would be lines 18-20. This is necessary because Wordpress is stupid.
 
-##Permissions
-
-In case you ever start having permissions issues you can ssh into the virtual machine and issue the following command:
-
-    sudo ./permissions.sh
-
-This will make sure that the wp-content directory and all of its contents (including subdirectories and their contents)
-will be readable and writable by all users. This script must be run as root which is why the snippet above includes sudo.
-
 ##MySQL
 
 ###Access with GUI Client
@@ -74,7 +65,7 @@ to connect over SSH and use the following settings:
 
 * SSH Host: localhost
 * SSH User: vagrant
-* SSH Key: ~/.vagrant.d/insecure_private_key
+* SSH Key: .vagrant/machines/default/virtualbox/private_key -- this is inside your project root
 * SSH Port: 2222
 
 You should use the default MySQL Port which means that you should be able to leave this field blank.
